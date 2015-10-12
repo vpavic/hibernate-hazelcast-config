@@ -1,7 +1,6 @@
 package demo;
 
 import com.hazelcast.config.Config;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -23,14 +22,6 @@ public class DemoApplication {
 	public Config config() {
 		return new Config("defaultInstance")
 				.setProperty("hazelcast.jmx", "true");
-	}
-
-	@Bean
-	public CommandLineRunner init(DemoRepository demoRepository) {
-		return args -> {
-			Demo demo = new Demo("demo");
-			demoRepository.save(demo);
-		};
 	}
 
 	@Bean
