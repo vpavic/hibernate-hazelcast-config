@@ -1,10 +1,10 @@
 # Hibernate-Hazelcast 2nd Level Cache Configuration
 
-This is a minimal project that demonstrates how to configure ```HazelcastInstance``` configured by ```HazelcastAutoConfiguration``` as Second Level Cache for Hibernate.
+This is a minimal project that demonstrates how to use ```HazelcastInstance``` configured by ```HazelcastAutoConfiguration``` as Second Level Cache for Hibernate.
 
 By default, Spring Boot will initialize ```EntityManagerFactory``` before ```HazelcastInstance```, resulting with configuration being loaded from ```hazelcast-default.xml``` instead of provided ```Config``` ```@Bean```.
 
-Run the project, log contains following output:
+Run the project, log contains the following output:
 
 ```
 2015-10-12 21:29:58.585  INFO 18375 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
@@ -37,7 +37,7 @@ Members [1] {
 2015-10-12 21:30:02.064  INFO 18375 --- [           main] com.hazelcast.core.LifecycleService      : [172.17.42.1]:5701 [dev] [3.5.2] Address[172.17.42.1]:5701 is STARTED
 ```
 
-As a workaround, ```EntityManagerFactory``` needs to be manually configured and marked as dependent on ```HazelcastInstance``` using ```@DependsOn("hazelcastInstance")```, as shown in ```DemoApplication``` class. To demonstrate workaorund run the project with ```workaround``` profile, log contains following output:
+To work around this, ```EntityManagerFactory``` needs to be manually configured and marked as dependent on ```HazelcastInstance``` using ```@DependsOn("hazelcastInstance")```, as shown in ```DemoApplication``` class. To demonstrate workaround run the project with ```workaround``` profile, log now contains the following output:
 
 ```
 2015-10-12 21:42:49.284  INFO 18933 --- [           main] c.h.instance.DefaultAddressPicker        : [LOCAL] [dev] [3.5.2] Prefer IPv4 stack is true.
