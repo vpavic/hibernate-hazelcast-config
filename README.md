@@ -1,5 +1,11 @@
 # Hibernate-Hazelcast 2nd Level Cache Configuration
 
+**UPDATE**:
+This issue was present in Spring Boot ```1.3.0.M5``` and was fixed in ```1.3.0.RC1 ```.
+See [this issue](https://github.com/spring-projects/spring-boot/issues/4158).
+
+---
+
 This is a minimal project that demonstrates how to use ```HazelcastInstance``` configured by ```HazelcastAutoConfiguration``` as Second Level Cache for Hibernate.
 
 By default, Spring Boot will initialize ```EntityManagerFactory``` before ```HazelcastInstance```, resulting with configuration being loaded from ```hazelcast-default.xml``` instead of provided ```Config``` ```@Bean```.
